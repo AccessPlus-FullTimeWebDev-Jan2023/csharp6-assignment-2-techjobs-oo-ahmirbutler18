@@ -23,17 +23,7 @@ namespace TechJobsOOAutoGraded6
             Value = value;
         }
 
-        public override bool Equals(object obj)
-        {
-            if (obj == null || GetType() != obj.GetType())
-            {
-                return obj is JobField type &&
-                   Id == type.Id;
-            }
-
-            JobField other = (JobField)obj;
-            return Id == other.Id;
-        }
+        
 
         public override int GetHashCode()
         {
@@ -43,6 +33,12 @@ namespace TechJobsOOAutoGraded6
         public override string ToString()
         {
             return Value;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is JobField field &&
+                   Id == field.Id;
         }
     }
 
